@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.example.sound_app">
+
+    <application
+            android:allowBackup="true"
+            android:icon="@drawable/sounds"
+            android:label="Sounds"
+            android:roundIcon="@drawable/sounds"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        //Thong bao
+        <receiver
+                android:name=".TimerNotificationActionReceiver"
+                android:enabled="true"
+                android:exported="false">
+            <intent-filter>
+                <action android:name="start"/>
+                <action android:name="pause"/>
+                <action android:name="resume"/>
+                <action android:name="start"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver
+                android:name=".TimerExpiredReceiver"
+                android:enabled="true"
+                android:exported="false">
+        </receiver>
+
+        <activity android:name=".MainActivity">
+        </activity>
+        <activity
+                android:name=".SettingActivity"
+                android:label="SettingActivity"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <activity android:name=".TimerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
