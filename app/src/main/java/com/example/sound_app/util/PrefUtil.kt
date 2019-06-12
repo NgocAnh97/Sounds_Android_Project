@@ -7,9 +7,14 @@ import com.example.sound_app.TimerActivity
 //remember the values even when the app is killed
 class PrefUtil {
     companion object{
+
+        //Bien key Timer_length
+        private const val TIMER_LENGTH_ID = "com.example.sound.timer_length_id"
         fun getTimerLength(context: Context):Int{
+            val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+            return preferences.getInt(TIMER_LENGTH_ID,10)
             //placeholder
-            return 1
+            //return 1
         }
 
         private const val PREVIOUS_TIMER_LENGTH_SECONDS_ID = "com.example.sound.timer_previous_length"

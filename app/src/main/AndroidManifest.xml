@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.sound_app">
+          xmlns:tools="http://schemas.android.com/tools" package="com.example.sound_app">
 
     <application
             android:allowBackup="true"
@@ -8,9 +8,9 @@
             android:label="Sounds"
             android:roundIcon="@drawable/sounds"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/Theme.Design.NoActionBar">
 
-        //Thong bao
+        <!-- Thong bao -->
         <receiver
                 android:name=".TimerNotificationActionReceiver"
                 android:enabled="true"
@@ -19,10 +19,9 @@
                 <action android:name="start"/>
                 <action android:name="pause"/>
                 <action android:name="resume"/>
-                <action android:name="start"/>
+                <action android:name="stop"/>
             </intent-filter>
         </receiver>
-
         <receiver
                 android:name=".TimerExpiredReceiver"
                 android:enabled="true"
@@ -33,16 +32,29 @@
         </activity>
         <activity
                 android:name=".SettingActivity"
-                android:label="SettingActivity"
+                android:label="Setting"
+                android:parentActivityName=".TimerActivity"
                 android:theme="@style/AppTheme.NoActionBar">
+
+            <!-- if use, cannot call action bar to tool bar -->
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.example.sound_app.TimerActivity"/>
         </activity>
 
-        <activity android:name=".TimerActivity">
+        <activity android:name=".SplashScreenActivity"
+                  android:theme="@style/SplashTheme"
+                  android:noHistory="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity
+                android:name=".TimerActivity"
+                android:theme="@style/AppTheme.NoActionBar">
+
         </activity>
     </application>
 

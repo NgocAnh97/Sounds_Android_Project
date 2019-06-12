@@ -3,14 +3,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'org.jetbrains.kotlin.android.extensions'
 
 
 android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.sound_app"
-        minSdkVersion 19
+        minSdkVersion 15
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -23,9 +22,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-    }
-    androidExtensions {
-        experimental = true
     }
 }
 

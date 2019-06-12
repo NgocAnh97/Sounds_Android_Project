@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support..v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
                                                  xmlns:app="http://schemas.android.com/apk/res-auto"
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent">
 
     <com.pavelsikun.seekbarpreference.SeekBarPreferenceCompat
-            android:key="com.example.sound.timer_length"
+            android:key="com.example.sound.timer_length_id"
             android:title="Timer Length"
             android:summary="For how many minutes should the timer run?"
             android:defaultValue="10"
@@ -14,4 +14,5 @@
             app:msbp_interval="1"
             app:msbp_measurementUnit="minutes"
             app:msbp_dialogEnabled="true"/>
-</android.support..v7.preference.PreferenceScreen>
+
+</android.support.v7.preference.PreferenceScreen>

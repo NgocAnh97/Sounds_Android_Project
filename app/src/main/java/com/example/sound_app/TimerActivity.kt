@@ -14,7 +14,7 @@ import android.view.MenuItem
 import com.example.sound_app.util.NotificationUtil
 import com.example.sound_app.util.PrefUtil
 import kotlinx.android.synthetic.main.activity_timer.*
-import kotlinx.android.synthetic.main.content_setting.*
+import kotlinx.android.synthetic.main.content_timer.*
 import java.util.*
 
 class TimerActivity : AppCompatActivity() {
@@ -234,6 +234,7 @@ class TimerActivity : AppCompatActivity() {
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_settings -> {
+                //Khong cai Setting: true la duoc
                 val intent = Intent(this, SettingActivity::class.java)
                 startActivity(intent)
                 true
