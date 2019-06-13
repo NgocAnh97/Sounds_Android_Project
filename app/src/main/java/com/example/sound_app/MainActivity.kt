@@ -12,6 +12,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //Nhan nut sang screen Music
+        btnMusic.setOnClickListener {
+            val intent = Intent(this, MusicActivity::class.java)
+            // start your next activity
+            startActivity(intent)
+        }
+
+        //Nhan nut sang screen Setting
         btnSetting.setOnClickListener {
             val intent = Intent(this, TimerActivity::class.java)
             // start your next activity

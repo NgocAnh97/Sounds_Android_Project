@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools" package="com.example.sound_app">
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.example.sound_app">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
             android:allowBackup="true"
@@ -8,7 +11,7 @@
             android:label="Sounds"
             android:roundIcon="@drawable/sounds"
             android:supportsRtl="true"
-            android:theme="@style/Theme.Design.NoActionBar">
+            android:theme="@style/NoActionBar">
 
         <!-- Thong bao -->
         <receiver
@@ -28,7 +31,6 @@
                 android:exported="false">
         </receiver>
 
-
         <activity
                 android:name=".SettingActivity"
                 android:label="Setting"
@@ -36,35 +38,36 @@
                 android:theme="@style/AppTheme.NoActionBar">
 
             <!-- if use, cannot call action bar to tool bar -->
-            <!--<meta-data-->
-                    <!--android:name="android.support.PARENT_ACTIVITY"-->
-                    <!--android:value="com.example.sound_app.TimerActivity"/>-->
+            <!-- <meta-data -->
+            <!-- android:name="android.support.PARENT_ACTIVITY" -->
+            <!-- android:value="com.example.sound_app.TimerActivity"/> -->
         </activity>
-
-        <activity android:name=".SplashScreenActivity"
-                  android:theme="@style/SplashTheme"
-                  android:noHistory="true" >
+        <activity
+                android:name=".SplashScreenActivity"
+                android:noHistory="true"
+                android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-
         </activity>
 
         <activity
                 android:name=".MainActivity"
                 android:theme="@style/AppTheme.NoActionBar">
-
         </activity>
 
+        <activity
+                android:name=".MusicActivity"
+                android:label="Music"
+                android:theme="@style/NoActionBar">
+        </activity>
 
         <activity
                 android:name=".TimerActivity"
                 android:parentActivityName=".MainActivity"
                 android:theme="@style/AppTheme.NoActionBar">
-
-
         </activity>
     </application>
 

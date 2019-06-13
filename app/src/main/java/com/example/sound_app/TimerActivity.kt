@@ -86,6 +86,8 @@ class TimerActivity : AppCompatActivity() {
         }
     }
 
+
+
     //Cac ham override voi cac trang thai Timer
     override fun onResume() {
         super.onResume()
@@ -139,6 +141,7 @@ class TimerActivity : AppCompatActivity() {
 
         if(secondsRemaining <= 0)
             onTimerFinished()
+
 
         //Resume where we left off
         else if (timerState == TimerState.Running)

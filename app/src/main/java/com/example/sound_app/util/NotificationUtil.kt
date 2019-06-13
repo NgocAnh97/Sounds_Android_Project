@@ -26,11 +26,16 @@ class NotificationUtil {
         private const val CHANNEL_NAME_TIMER = "Sound App Timer"
         private const val TIMER_ID = 0
 
-        //Start
+        //Thoi gian het han -> co the Start / Stop
         fun showTimerExpired (context: Context){
             val startIntent = Intent(context,TimerNotificationActionReceiver::class.java)
             startIntent.action =Constants.ACTION_START
             val startPendingIntent = PendingIntent.getBroadcast(context,0,startIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT)
+
+            val stopIntent = Intent(context,TimerNotificationActionReceiver::class.java)
+            stopIntent.action =Constants.ACTION_STOP
+            val stopPendingIntent = PendingIntent.getBroadcast(context,0,stopIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT)
 
             val nBuilder = getBasicNotificationBuilder(context, CHANNEL_ID_TIMER,true)
@@ -38,6 +43,7 @@ class NotificationUtil {
                 .setContentText("Do you want to start again?")
                 .setContentIntent(getPendingIntentWithStack(context,TimerActivity::class.java))
                 .addAction(R.drawable.ic_play_arrow,"Start", startPendingIntent)
+                .addAction(R.drawable.ic_stop,"Stop", stopPendingIntent)
 
             val nManager = context.getSystemService(Context.NOTIFICATION_SERVICE)
                     as NotificationManager
@@ -47,7 +53,7 @@ class NotificationUtil {
             nManager.notify(TIMER_ID,nBuilder.build())
         }
 
-        //Running
+        //Thoi gian dang chay -> co the Pause / Stop
         fun showTimerRunning (context: Context, wakeUpTime:Long){
             val stopIntent = Intent(context,TimerNotificationActionReceiver::class.java)
             stopIntent.action =Constants.ACTION_STOP
@@ -59,7 +65,7 @@ class NotificationUtil {
             val pausePendingIntent = PendingIntent.getBroadcast(context,
                 0, pauseIntent, PendingIntent.FLAG_UPDATE_CURRENT)
 
-            //Dinh dang ngay
+            //Dinh dang thoi gian
             val df = SimpleDateFormat.getTimeInstance(SimpleDateFormat.SHORT)
 
             val nBuilder = getBasicNotificationBuilder(context, CHANNEL_ID_TIMER,true)
@@ -67,8 +73,8 @@ class NotificationUtil {
                 .setContentText("End: ${df.format(Date(wakeUpTime))}")
                 .setContentIntent(getPendingIntentWithStack(context,TimerActivity::class.java))
                 .setOngoing(true)
-                .addAction(R.drawable.ic_stop,"Stop", stopPendingIntent)
                 .addAction(R.drawable.ic_pause,"Pause", pausePendingIntent)
+                .addAction(R.drawable.ic_stop,"Stop", stopPendingIntent)
 
             val nManager = context.getSystemService(Context.NOTIFICATION_SERVICE)
                     as NotificationManager
@@ -78,7 +84,7 @@ class NotificationUtil {
             nManager.notify(TIMER_ID,nBuilder.build())
         }
 
-        //Paused
+        //Thoi gian dang tam ngung -> co the Resume
         fun showTimerPaused (context: Context){
             val resumeIntent = Intent(context,TimerNotificationActionReceiver::class.java)
             resumeIntent.action =Constants.ACTION_RESUME
@@ -106,7 +112,7 @@ class NotificationUtil {
             nManager.cancel(TIMER_ID)
         }
 
-        //
+        //Mot thong bao co ban
         private fun getBasicNotificationBuilder(context: Context,channelId:String,playSound:Boolean)
             :NotificationCompat.Builder{
                 val notificationSound: Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)

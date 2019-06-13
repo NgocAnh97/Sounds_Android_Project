@@ -2,22 +2,20 @@
 <android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/blow"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context=".SplashScreenActivity">
-
-
+        android:background="@drawable/purple2_background"
+        tools:context=".MusicActivity">
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/make_your_own_magic_3"
+            android:text="@string/enjoy_your_favorite_music_world_3"
             android:textSize="20sp"
             android:textStyle="italic|bold"
             android:gravity="center_horizontal"
-            android:layout_margin="80dp"
             android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>

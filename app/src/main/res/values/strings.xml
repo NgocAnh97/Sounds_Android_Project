@@ -5,4 +5,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_music">MusicActivity</string>
+
+    <string name="enjoy_your_favorite_music_world_3"><![CDATA[Enjoy your favorite music world <3]]></string>
+    <string name="make_your_own_magic_3"><![CDATA[Make your own magic <3]]></string>
 </resources>
