@@ -66,21 +66,21 @@ class TimerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_timer)
         setSupportActionBar(toolbar)
         supportActionBar?.setIcon(R.drawable.ic_timer)
-        supportActionBar?.title = "      Timer"
+        supportActionBar?.title = "    Timer"
 
-        fab_start.setOnClickListener { v ->
+        fab_start.setOnClickListener {
             startTimer()
             timerState = TimerState.Running
             updateButtons()
         }
 
-        fab_pause.setOnClickListener { v ->
+        fab_pause.setOnClickListener {
             timer.cancel()
             timerState = TimerState.Paused
             updateButtons()
         }
 
-        fab_stop.setOnClickListener { v ->
+        fab_stop.setOnClickListener {
             timer.cancel()
             onTimerFinished()
         }

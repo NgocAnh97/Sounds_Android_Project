@@ -28,8 +28,7 @@
                 android:exported="false">
         </receiver>
 
-        <activity android:name=".MainActivity">
-        </activity>
+
         <activity
                 android:name=".SettingActivity"
                 android:label="Setting"
@@ -37,9 +36,9 @@
                 android:theme="@style/AppTheme.NoActionBar">
 
             <!-- if use, cannot call action bar to tool bar -->
-            <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value="com.example.sound_app.TimerActivity"/>
+            <!--<meta-data-->
+                    <!--android:name="android.support.PARENT_ACTIVITY"-->
+                    <!--android:value="com.example.sound_app.TimerActivity"/>-->
         </activity>
 
         <activity android:name=".SplashScreenActivity"
@@ -50,10 +49,21 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+
         </activity>
+
+        <activity
+                android:name=".MainActivity"
+                android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
+
         <activity
                 android:name=".TimerActivity"
+                android:parentActivityName=".MainActivity"
                 android:theme="@style/AppTheme.NoActionBar">
+
 
         </activity>
     </application>
