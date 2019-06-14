@@ -69,7 +69,6 @@ class MusicActivity : AppCompatActivity() {
         }
 
 
-
         launch(kotlinx.coroutines.experimental.android.UI) {
             val songs = songsJob.await()
 
