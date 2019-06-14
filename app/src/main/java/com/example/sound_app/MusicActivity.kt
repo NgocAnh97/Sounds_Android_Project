@@ -37,8 +37,7 @@ class MusicActivity : AppCompatActivity() {
         setContentView(R.layout.activity_music)
         if (ContextCompat.checkSelfPermission(
                 this,
-                android.Manifest.permission.READ_EXTERNAL_STORAGE
-            ) != PackageManager.PERMISSION_GRANTED) {
+                android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
 
             //Yeu cau quyen truy cap Doc tu bo nho ngoai
             ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), 0)
